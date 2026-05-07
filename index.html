@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vayra Digital Agency | Take Your Business Online</title>
+  <meta name="description" content="Vayra Digital Agency helps local offline businesses go online with professional websites, Google Maps setup, social media management, and AI automation. Based in Noida, serving India." />
+  <meta name="keywords" content="digital agency Noida, website development Noida, Google Maps setup, social media management, AI automation, Vayra Digital Agency" />
+  <meta property="og:title" content="Vayra Digital Agency — Empowering Businesses Beyond Boundaries" />
+  <meta property="og:description" content="We transform local businesses into powerful digital brands." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ LOADING SCREEN ═══ -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <img src="assets/images/vayra-v.png" alt="Vayra V Mark" class="loader-v-mark" />
+      </div>
+      <div class="loader-text">
+        <span class="loader-letter" style="--i:0">V</span>
+        <span class="loader-letter" style="--i:1">A</span>
+        <span class="loader-letter" style="--i:2">Y</span>
+        <span class="loader-letter" style="--i:3">R</span>
+        <span class="loader-letter" style="--i:4">A</span>
+      </div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ SCROLL PROGRESS BAR ═══ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══ CUSTOM CURSOR ═══ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="assets/images/vayra-v.png" alt="Vayra V Mark" class="nav-v-mark" />
+        <span class="nav-brand-text">VAYRA</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-nav-cta">Get Free Consultation</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#services" class="mobile-link">Services</a></li>
+      <li><a href="#process" class="mobile-link">Process</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="mobile-cta">Get Free Consultation</a>
+  </div>
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid" id="heroGrid"></div>
+      <div class="orb orb-cyan"></div>
+      <div class="orb orb-blue"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-left reveal-left">
+        <div class="tag-label">⚡ DIGITAL TRANSFORMATION AGENCY</div>
+        <h1 class="hero-h1">
+          <span class="h1-line" style="--delay:0.1s">Take Your</span>
+          <span class="h1-line" style="--delay:0.2s">Business</span>
+          <span class="h1-line h1-gradient" style="--delay:0.3s">ONLINE.</span>
+        </h1>
+        <p class="hero-sub reveal-fade" style="--delay:0.5s">
+          We help local offline businesses build powerful digital presence — websites, Google visibility, social media, and AI automation. All in one place.
+        </p>
+        <div class="hero-btns reveal-fade" style="--delay:0.7s">
+          <a href="#contact" class="btn-primary">Start Your Journey →</a>
+          <a href="#services" class="btn-ghost">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero-right reveal-right">
+        <div class="dashboard-card">
+          <div class="dash-header">
+            <span class="dash-dot green"></span>
+            <span class="dash-dot yellow"></span>
+            <span class="dash-dot red"></span>
+            <span class="dash-title">Digital Presence Dashboard</span>
+          </div>
+          <div class="dash-progress-wrap">
+            <div class="dash-label">Online Presence Score</div>
+            <div class="dash-progress-bar">
+              <div class="dash-progress-fill" id="dashProgressFill"></div>
+              <span class="dash-progress-text">94%</span>
+            </div>
+          </div>
+          <div class="dash-metrics">
+            <div class="metric-card">
+              <div class="metric-icon">📈</div>
+              <div class="metric-val">+240%</div>
+              <div class="metric-label">Website Visitors</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon">🗺️</div>
+              <div class="metric-val">#1</div>
+              <div class="metric-label">Google Ranking</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon">🎯</div>
+              <div class="metric-val">128</div>
+              <div class="metric-label">Leads Generated</div>
+            </div>
+          </div>
+          <div class="dash-chart">
+            <div class="chart-label">Monthly Growth</div>
+            <svg class="line-chart" viewBox="0 0 260 80" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path id="chartArea" d="M0,70 L40,60 L80,50 L120,35 L160,25 L200,15 L240,8 L260,5 L260,80 L0,80 Z" fill="url(#chartGrad)"/>
+              <path id="chartLine" d="M0,70 L40,60 L80,50 L120,35 L160,25 L200,15 L240,8 L260,5" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="600" stroke-dashoffset="600"/>
+            </svg>
+          </div>
+          <div class="status-row">
+            <div class="status-item"><span class="status-dot pulse-green"></span>Website Live</div>
+            <div class="status-item"><span class="status-dot pulse-cyan"></span>SEO Active</div>
+            <div class="status-item"><span class="status-dot pulse-green"></span>Social Live</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll to explore</span>
+      <div class="scroll-chevron">
+        <div class="chev"></div>
+        <div class="chev"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ ABOUT SECTION ═══ -->
+  <section id="about" class="about">
+    <div class="about-bg-mesh"></div>
+    <div class="about-container">
+      <div class="about-left">
+        <div class="tag-label reveal-up">[ ABOUT VAYRA ]</div>
+        <h2 class="section-h2 reveal-up">Empowering Businesses to<br/>Grow Beyond Boundaries</h2>
+        <p class="brand-statement reveal-up"><em>At Vayra Digital Agency, we transform local businesses into powerful digital brands by building modern online platforms designed for growth.</em></p>
+        <div class="brand-story reveal-up">
+          <p>In today's digital world, businesses are no longer limited by geography. A small local shop can now reach customers across cities, countries, and even continents.</p>
+          <p><strong>Vayra was built with this vision.</strong></p>
+          <p>The name represents power, movement, and transformation — the force that helps businesses move beyond limitations and step confidently into the digital future.</p>
+        </div>
+        <div class="specialize-section reveal-up">
+          <p class="specialize-heading">We specialize in:</p>
+          <div class="spec-grid">
+            <div class="spec-card glass-card">🌐 Professional Website Development</div>
+            <div class="spec-card glass-card">🗺️ Google Maps &amp; Local SEO</div>
+            <div class="spec-card glass-card">📱 Social Media Management</div>
+            <div class="spec-card glass-card">🤖 AI Automation Systems</div>
+          </div>
+        </div>
+        <p class="approach-text reveal-up">For us, a website is more than just design. It is a <strong>digital foundation for long-term growth</strong> — a platform that attracts customers, builds trust, and creates new opportunities.</p>
+        <div class="core-values reveal-up">
+          <div class="value-card glass-card">
+            <div class="value-icon">⚡</div>
+            <div class="value-title">Innovation</div>
+            <div class="value-desc">Creating modern digital solutions</div>
+          </div>
+          <div class="value-card glass-card">
+            <div class="value-icon">🛡️</div>
+            <div class="value-title">Reliability</div>
+            <div class="value-desc">Delivering systems businesses can depend on</div>
+          </div>
+          <div class="value-card glass-card">
+            <div class="value-icon">📈</div>
+            <div class="value-title">Growth</div>
+            <div class="value-desc">Helping businesses expand beyond local markets</div>
+          </div>
+        </div>
+        <p class="vision-text reveal-up">Our vision is simple: <strong>To help businesses move from local recognition to global reach.</strong> Because in the digital era, the right platform can turn a local idea into a worldwide success story.</p>
+        <p class="closing-gradient reveal-up">And that journey begins with Vayra Digital Agency.</p>
+      </div>
+      <div class="about-right reveal-right">
+        <div class="network-visual" id="networkVisual">
+          <canvas id="networkCanvas"></canvas>
+          <div class="v-watermark">
+            <img src="assets/images/vayra-v.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ SERVICES SECTION ═══ -->
+  <section id="services" class="services">
+    <div class="services-container">
+      <div class="section-center reveal-up">
+        <div class="tag-label">[ WHAT WE OFFER ]</div>
+        <h2 class="section-h2">Services Built for<br/>Digital Growth</h2>
+        <p class="section-sub">Everything your business needs to establish and dominate its online presence.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card reveal-up" style="--i:0">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-website.jpg.png" alt="Website Development" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">Website Development</h3>
+          <p class="svc-desc">Custom, modern, mobile-responsive websites that look premium and load fast. Built to convert visitors into customers.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card glass-card reveal-up" style="--i:1">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-gmaps.jpg.png" alt="Google Maps & Local SEO" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">Google Maps &amp; Local SEO</h3>
+          <p class="svc-desc">Get your business discovered on Google Maps and local search. We optimize your GMB profile for maximum visibility.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card glass-card reveal-up" style="--i:2">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-social.jpg.png" alt="Social Media Management" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">Social Media Management</h3>
+          <p class="svc-desc">Consistent, branded content creation and posting across Instagram, Facebook, and more — handled by us, growth for you.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card glass-card reveal-up" style="--i:3">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-ai.jpg.png" alt="AI Automation" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">AI Automation</h3>
+          <p class="svc-desc">Smart AI-powered chatbots, auto-responses, lead capture systems, and workflow automation to save time and grow faster.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card glass-card reveal-up" style="--i:4">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-brand.jpg.png" alt="Brand Identity & Design" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">Brand Identity &amp; Design</h3>
+          <p class="svc-desc">Complete digital brand identity — logo, color system, typography, and visual language that positions you as premium.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card glass-card reveal-up" style="--i:5">
+          <div class="svc-img-wrap">
+            <img src="assets/images/services/svc-analytics.jpg.png" alt="Performance & Analytics" class="svc-img" loading="lazy" />
+          </div>
+          <h3 class="svc-title">Performance &amp; Analytics</h3>
+          <p class="svc-desc">Track what's working. We set up analytics dashboards, monitor performance, and optimize your digital presence monthly.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ PROCESS SECTION ═══ -->
+  <section id="process" class="process">
+    <div class="process-container">
+      <div class="section-center reveal-up">
+        <div class="tag-label">[ HOW WE WORK ]</div>
+        <h2 class="section-h2">Our Simple 4-Step<br/>Process</h2>
+      </div>
+      <div class="timeline" id="timeline">
+        <div class="timeline-line">
+          <div class="timeline-line-fill" id="timelineFill"></div>
+        </div>
+        <div class="process-steps">
+          <div class="step-card reveal-up" style="--i:0">
+            <div class="step-bg-num">01</div>
+            <div class="step-node" id="node0"><div class="step-node-inner"></div></div>
+            <div class="step-icon">🔍</div>
+            <h3 class="step-title">Discovery Call</h3>
+            <p class="step-desc">We understand your business, goals, target customers, and digital needs in a free 30-minute consultation.</p>
+          </div>
+          <div class="step-card reveal-up" style="--i:1">
+            <div class="step-bg-num">02</div>
+            <div class="step-node" id="node1"><div class="step-node-inner"></div></div>
+            <div class="step-icon">📋</div>
+            <h3 class="step-title">Custom Strategy</h3>
+            <p class="step-desc">We build a tailored digital roadmap — which platforms, what content, what tools your business actually needs.</p>
+          </div>
+          <div class="step-card reveal-up" style="--i:2">
+            <div class="step-bg-num">03</div>
+            <div class="step-node" id="node2"><div class="step-node-inner"></div></div>
+            <div class="step-icon">🚀</div>
+            <h3 class="step-title">Build &amp; Launch</h3>
+            <p class="step-desc">We design, develop, and launch your digital presence — website, GMB profile, social pages, all connected.</p>
+          </div>
+          <div class="step-card reveal-up" style="--i:3">
+            <div class="step-bg-num">04</div>
+            <div class="step-node" id="node3"><div class="step-node-inner"></div></div>
+            <div class="step-icon">📈</div>
+            <h3 class="step-title">Monitor &amp; Grow</h3>
+            <p class="step-desc">We track performance, manage your online presence monthly, and continuously optimize for better results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ QUOTES SECTION ═══ -->
+  <section class="quotes-section">
+    <div class="quotes-bg">
+      <div class="quotes-orb quotes-orb-left"></div>
+      <div class="quotes-orb quotes-orb-right"></div>
+    </div>
+
+    <!-- Scrolling marquee strip -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Digital Transformation</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Grow Beyond Limits</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Your Business Online</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> More Customers Daily</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Digital Transformation</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Grow Beyond Limits</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Your Business Online</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> More Customers Daily</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Digital Transformation</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Grow Beyond Limits</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> Your Business Online</span>
+        <span class="marquee-item"><span class="marquee-diamond">◆</span> More Customers Daily</span>
+      </div>
+    </div>
+
+    <!-- Main quotes -->
+    <div class="quotes-container">
+      <div class="quotes-grid">
+
+        <div class="quote-card glass-card reveal-up" style="--i:0">
+          <div class="quote-icon">"</div>
+          <p class="quote-text">Your business deserves more than just visibility.<br/><span class="quote-highlight">It deserves unstoppable digital growth.</span></p>
+          <div class="quote-footer">
+            <div class="quote-line"></div>
+            <span class="quote-tag">GROWTH MINDSET</span>
+          </div>
+        </div>
+
+        <div class="quote-card quote-card-center glass-card reveal-up" style="--i:1">
+          <div class="quote-icon">"</div>
+          <p class="quote-text">From local shop to powerful brand.<br/><span class="quote-highlight">Let's build your digital future together.</span></p>
+          <div class="quote-footer">
+            <div class="quote-line"></div>
+            <span class="quote-tag">BRAND VISION</span>
+          </div>
+        </div>
+
+        <div class="quote-card glass-card reveal-up" style="--i:2">
+          <div class="quote-icon">"</div>
+          <p class="quote-text">Ready to get more customers online?<br/><span class="quote-highlight">Let Vayra build your growth engine.</span></p>
+          <div class="quote-footer">
+            <div class="quote-line"></div>
+            <span class="quote-tag">YOUR SUCCESS</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="quotes-cta reveal-up">
+        <div class="quotes-cta-inner">
+          <div class="quotes-cta-glow"></div>
+          <p class="quotes-cta-label">⚡ READY TO START?</p>
+          <h3 class="quotes-cta-heading">The digital world is waiting.<br/>Your business should be in it.</h3>
+          <a href="#contact" class="btn-primary quotes-cta-btn">Book Your Free Consultation →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ═══ CONTACT SECTION ═══ -->
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <div class="section-center reveal-up">
+        <div class="tag-label">[ GET IN TOUCH ]</div>
+        <h2 class="section-h2">Ready to Take Your<br/>Business Online?</h2>
+        <p class="section-sub">Book a free 30-minute consultation and let's talk about growing your business digitally.</p>
+      </div>
+      <div class="contact-cols">
+        <div class="contact-info reveal-left">
+          <div class="contact-v-bg">
+            <img src="assets/images/vayra-v.png" alt="" />
+          </div>
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <span>Noida, Uttar Pradesh, India</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📧</span>
+              <a href="mailto:vayraagency@outlook.com" style="color: inherit; text-decoration: none;">vayraagency@outlook.com</a>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📱</span>
+              <span>+91 XXXXXXXXXX</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🕐</span>
+              <span>Mon–Sat, 10 AM – 7 PM IST</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://wa.me/91XXXXXXXXXX" class="social-btn" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form glass-card" id="contactForm">
+            <!-- Web3Forms Security Key -->
+            <input type="hidden" name="access_key" value="9c17c9c4-0770-4b01-aa20-da14879478fe">
+            
+            <!-- Web3Forms Configuration -->
+            <input type="hidden" name="subject" value="New Business Lead from Vayra Website">
+            <input type="hidden" name="from_name" value="Vayra Digital Agency">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <div class="form-group">
+              <input type="text" id="fullName" name="fullName" class="form-input" required placeholder=" " autocomplete="name" />
+              <label for="fullName" class="form-label">Full Name</label>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" class="form-input" required placeholder=" " autocomplete="tel" />
+              <label for="phone" class="form-label">Phone Number</label>
+            </div>
+            <div class="form-group">
+              <select id="businessType" name="businessType" class="form-input form-select" required>
+                <option value="" disabled selected></option>
+                <option value="Gym">Gym</option>
+                <option value="Salon">Salon</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Retail">Retail</option>
+                <option value="Other">Other</option>
+              </select>
+              <label for="businessType" class="form-label">Business Type</label>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" class="form-input form-textarea" rows="4" required placeholder=" "></textarea>
+              <label for="message" class="form-label">Tell us about your business</label>
+            </div>
+            <button type="submit" class="btn-primary full-width" id="submitBtn">Book Free Consultation →</button>
+            <div class="form-success" id="formSuccess">
+              <div class="success-checkmark">
+                <svg viewBox="0 0 52 52"><circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+              </div>
+              <p>Thank you! We'll reach out within 24 hours.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/vayra-v.png" alt="Vayra V Mark" class="footer-v-mark" />
+          <span class="footer-brand-name">VAYRA</span>
+        </div>
+        <p class="footer-tagline">Transforming local businesses into digital brands.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4 class="footer-col-title">Contact</h4>
+        <div class="footer-contact-item">📧 <a href="mailto:vayraagency@outlook.com" style="color: inherit; text-decoration: none;">vayraagency@outlook.com</a></div>
+        <div class="footer-contact-item">📱 +91 XXXXXXXXXX</div>
+        <div class="footer-contact-item">📍 Noida, UP, India</div>
+        <div class="footer-contact-item">🕐 Mon–Sat, 10 AM – 7 PM IST</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Vayra Digital Agency. All rights reserved. | Made with ⚡ in Noida</p>
+    </div>
+  </footer>
+
+  <!-- ═══ AI CHATBOT ═══ -->
+  <div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="chat-panel glass-card" id="chatPanel">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <img src="assets/images/vayra-v.png" alt="Vayra" class="chat-avatar" />
+          <div>
+            <div class="chat-header-title">Vayra Assistant ⚡</div>
+            <div class="chat-header-sub">Ask me anything about our services</div>
+          </div>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-quick-replies" id="chatQuickReplies">
+        <button class="quick-reply" data-type="website">💻 Website Development</button>
+        <button class="quick-reply" data-type="gmaps">📍 Google Maps Setup</button>
+        <button class="quick-reply" data-type="social">📱 Social Media</button>
+        <button class="quick-reply" data-type="ai">🤖 AI Automation</button>
+        <button class="quick-reply" data-type="pricing">💰 Get a Quote</button>
+        <button class="quick-reply" data-type="consult">📞 Book Consultation</button>
+      </div>
+      <div class="chat-input-wrap">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." autocomplete="off" />
+        <button class="chat-send" id="chatSend" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="chat-tooltip" id="chatTooltip">Hello! 👋</div>
+    <button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+      <span class="chat-launcher-icon">✨</span>
+    </button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
