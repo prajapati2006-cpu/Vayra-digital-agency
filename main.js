@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   VAYRA DIGITAL AGENCY — MAIN JAVASCRIPT
+   VAYRA MEDIA — MAIN JAVASCRIPT
    ═══════════════════════════════════════════════════ */
 
 'use strict';
@@ -12,15 +12,19 @@
 
   // Animate bar
   requestAnimationFrame(() => {
-    loaderBar.style.width = '100%';
+    if (loaderBar) loaderBar.style.width = '100%';
   });
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      loader.classList.add('done');
-      initChartAnimation();
-    }, 1500);
-  });
+  const hideLoader = () => {
+    loader.classList.add('done');
+    initChartAnimation();
+  };
+
+  if (document.readyState === 'complete') {
+    setTimeout(hideLoader, 200);
+  } else {
+    window.addEventListener('load', () => setTimeout(hideLoader, 200));
+  }
 })();
 
 // ─── SCROLL PROGRESS ─────────────────────────────────────────
@@ -33,41 +37,21 @@
   }, { passive: true });
 })();
 
-// ─── CUSTOM CURSOR ───────────────────────────────────────────
-(function initCursor() {
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  if (!dot || !ring) return;
-  if (window.matchMedia('(hover: none)').matches) return;
-
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top = my + 'px';
-  });
-
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  // Cursor interactions
-  document.querySelectorAll('a, button, .quick-reply, .toggle-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      dot.style.transform = 'translate(-50%,-50%) scale(1.8)';
-      ring.style.width = '50px'; ring.style.height = '50px';
-      ring.style.opacity = '0.5';
-    });
-    el.addEventListener('mouseleave', () => {
-      dot.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.width = '30px'; ring.style.height = '30px';
-      ring.style.opacity = '1';
-    });
+// ─── PACKAGE SELECT HANDLER ─────────────────────────────────
+(function initPackageSelection() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-select-package');
+    if (!btn) return;
+    const pkg = btn.getAttribute('data-package');
+    const selectEl = document.getElementById('businessType');
+    if (selectEl && pkg) {
+      for (let i = 0; i < selectEl.options.length; i++) {
+        if (selectEl.options[i].text.includes(pkg) || selectEl.options[i].value.includes(pkg)) {
+          selectEl.selectedIndex = i;
+          break;
+        }
+      }
+    }
   });
 })();
 
@@ -167,13 +151,13 @@
 
   function buildNodes() {
     nodes = [];
-    const count = 18;
+    const count = 26;
     for (let i = 0; i < count; i++) {
       nodes.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
         r: Math.random() * 2.5 + 1.5,
         pulse: Math.random() * Math.PI * 2,
       });
@@ -182,19 +166,6 @@
 
   function draw(t) {
     ctx.clearRect(0, 0, W, H);
-    // bg
-    ctx.fillStyle = 'rgba(5,10,20,0.9)';
-    ctx.fillRect(0, 0, W, H);
-
-    // grid lines
-    ctx.strokeStyle = 'rgba(15,32,64,0.4)';
-    ctx.lineWidth = 0.5;
-    for (let x = 0; x < W; x += 40) {
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
-    }
-    for (let y = 0; y < H; y += 40) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-    }
 
     // update & connect
     nodes.forEach(n => {
@@ -210,8 +181,8 @@
         const dx = nodes[j].x - nodes[i].x;
         const dy = nodes[j].y - nodes[i].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          const alpha = (1 - dist / 140) * 0.5;
+        if (dist < 160) {
+          const alpha = (1 - dist / 160) * 0.5;
           // animated data flow
           const progress = ((t * 0.0006 + (i + j) * 0.2) % 1);
           const px = nodes[i].x + dx * progress;
@@ -250,38 +221,48 @@
       ctx.fill();
     });
 
-    // floating hexagon shapes
-    for (let i = 0; i < 3; i++) {
-      const angle = t * 0.0003 + i * (Math.PI * 2 / 3);
-      const cx = W / 2 + Math.cos(angle) * (W * 0.2);
-      const cy = H / 2 + Math.sin(angle) * (H * 0.2);
-      drawHex(ctx, cx, cy, 20 + i * 6, t * 0.0005 + i);
-    }
-
     anim = requestAnimationFrame(draw);
-  }
-
-  function drawHex(ctx, cx, cy, r, rot) {
-    ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(rot);
-    ctx.beginPath();
-    for (let i = 0; i < 6; i++) {
-      const a = (i / 6) * Math.PI * 2 - Math.PI / 6;
-      i === 0 ? ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r)
-              : ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
-    }
-    ctx.closePath();
-    ctx.strokeStyle = 'rgba(0,102,255,0.25)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-    ctx.restore();
   }
 
   resize();
   requestAnimationFrame(draw);
   window.addEventListener('resize', () => { resize(); });
 })();
+
+// ─── PORTFOLIO CATEGORY FILTERING ────────────────────────────
+(function initPortfolioFilter() {
+  const filterBtns = document.querySelectorAll('.portfolio-filter-btn');
+  const cards = document.querySelectorAll('.portfolio-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category') || '';
+        if (filter === 'all' || cat.includes(filter)) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+})();
+
+
 
 // ─── DASHBOARD CHART ─────────────────────────────────────────
 function initChartAnimation() {
@@ -464,7 +445,7 @@ function initChartAnimation() {
 
   async function playOpeningMessages() {
     const msgs = [
-      "Hey! 👋 Welcome to Vayra Digital Agency.",
+      "Hey! 👋 Welcome to Vayra Media.",
       "We help local businesses get online and actually grow — websites, Google Maps, social media, AI tools, the whole deal.",
       "What's on your mind? Ask me anything 😊"
     ];
@@ -607,7 +588,7 @@ function initChartAnimation() {
     // ─── ABOUT VAYRA ───
     if (matches(msg, ['about vayra','who are you','about you','about your company','tell me about','your agency','your team','vayra','where are you','based'])) {
       return pick([
-        `${n}we're Vayra Digital Agency, based in Noida, India 🇮🇳\n\nThe name "Vayra" means power and movement — and that's exactly what we do. We move businesses from offline to online, from invisible to visible.\n\nWe've worked with gyms, salons, restaurants, clinics, coaching centers, and retail stores — helping them get websites, Google presence, social media, and automation set up.\n\nOur whole thing is: we make digital simple for business owners who don't have time to figure it out themselves.\n\nWhat about you — what's your business?`,
+        `${n}we're Vayra Media, based in Noida, India 🇮🇳\n\nThe name "Vayra" means power and movement — and that's exactly what we do. We move businesses from offline to online, from invisible to visible.\n\nWe've worked with gyms, salons, restaurants, clinics, coaching centers, and retail stores — helping them get websites, Google presence, social media, and automation set up.\n\nOur whole thing is: we make digital simple for business owners who don't have time to figure it out themselves.\n\nWhat about you — what's your business?`,
         `${n}Vayra is a digital growth agency from Noida that helps local businesses build their online presence from scratch.\n\nWe're not a huge corporate agency — we work closely with each client, understand their business, and deliver results fast (most projects done in under a week).\n\nOur focus areas: websites, Google Maps, social media, and AI automation.\n\nWhat industry are you in? I'd love to tell you how we can help 😊`
       ]);
     }
