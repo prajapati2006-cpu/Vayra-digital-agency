@@ -37,6 +37,39 @@
   }, { passive: true });
 })();
 
+// ─── BUTTER-SMOOTH LENIS SCROLL ENGINE ───────────────────────
+(function initLenisSmoothScroll() {
+  if (typeof Lenis === 'undefined') return;
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smoothTouch: false,
+    touchMultiplier: 1.8,
+  });
+
+  window.lenis = lenis;
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Smooth scroll for all internal anchor links
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (href && href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      lenis.scrollTo(href, { offset: -70 });
+    }
+  });
+})();
+
 // ─── PACKAGE SELECT HANDLER ─────────────────────────────────
 (function initPackageSelection() {
   document.addEventListener('click', (e) => {

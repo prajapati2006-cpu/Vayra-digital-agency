@@ -3543,4 +3543,52 @@ body {
     width: 50px;
     height: 50px;
   }
+}
+
+/* ═══════════════════════════════════
+   BUTTER-SMOOTH LENIS & GPU RENDER
+   ═══════════════════════════════════ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.glass-card,
+.service-card,
+.portfolio-card,
+.pricing-card,
+.testimonial-card,
+.pillar-card,
+.step-card,
+.btn-primary,
+.btn-ghost,
+.btn-plan,
+.btn-nav-cta {
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-fade {
+  will-change: transform, opacity;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
